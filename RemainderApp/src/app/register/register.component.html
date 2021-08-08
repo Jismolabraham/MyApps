@@ -1,0 +1,15 @@
+<form (ngSubmit)="register()">
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h2>Register Here!!</h2><br>
+                <input type="text" placeholder="Enter User Id" [(ngModel)]="uid" name="uid"><br><br>
+                <input type="UseName" placeholder="Enter UerName" [(ngModel)]="uname" name="uname"><br><br>
+                <input type="password" placeholder="password" [(ngModel)]="pwd" name="pwd"><br><br>
+                <button class="btn btn-primary" type="submit">Register</button>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+</form>

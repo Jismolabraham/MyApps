@@ -1,0 +1,44 @@
+
+<div>
+    <h2>Hello&nbsp;{{user}}</h2>
+</div>
+<form>
+    <div class="container des">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h2>Add events here!!</h2>
+                <input type="text" [(ngModel)]="uid" placeholder="userid" name ="uid">
+                <input type="date" [(ngModel)]="date" placeholder="date" name="date">
+                <input type="text" [(ngModel)]="event" name="" placeholder="Event" name="event">
+                <button class="btn btn-success" (click)="addevent()">Add</button>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+</form>
+
+<!-- <form>
+    <div class="container des">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h2>Delete events here!!</h2>
+                <input type="text" [(ngModel)]="uid1" placeholder="userid" name="uid1">
+                <input type="date" [(ngModel)]="date1" placeholder="date" name="date1">
+                <input type="text" [(ngModel)]="event1" name="event" placeholder="Event" name="event1">
+                <button class="btn btn-success" (click)="deleteevent">Delete</button>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+</form> -->
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <a routerLink="/events">view events history</a>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
