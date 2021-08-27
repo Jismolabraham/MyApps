@@ -23,11 +23,18 @@ register()
   // console.log(this.uid)
   // console.log(this.pwd);
   
- var result=this.ds.register(uid,uname,pwd)
- if(result)
- {
-   alert("register succes")
-   this.router.navigateByUrl("")
- }
+ this.ds.register(uid,uname,pwd)
+ .subscribe((result:any)=>{
+  if(result)
+  {
+    alert(result.message)
+    this.router.navigateByUrl("")
+  }
+},(result)=>{
+  alert(result.error.message)
+  this.router.navigateByUrl("")
+  
+ })
+ 
 }
 }

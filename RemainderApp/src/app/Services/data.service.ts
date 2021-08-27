@@ -1,8 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
-
+const options={
+  withCredentials:true
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +19,7 @@ export class DataService {
     1003: {userid:1003,username:"kiran", password:"kiran",events:[]}
   }
 
-  constructor(private router:Router) {
+  constructor(private router:Router,private http:HttpClient) {
     this.getdata()
    }
 
@@ -50,55 +53,67 @@ export class DataService {
  
   register(userid:any,username:any,password:any)
   {
-    let userdetails=this.users
-    if(userid in userdetails)
-    {
-      alert("exist")
-      return false;
-    }
-    else
-    {
-      userdetails[userid]={userid,username,password,events:[]}
-      // console.log(userdetails);
-      this.savedata()
-      // alert("successfully registered")
-      return true
-    }
+    const data={userid,
+    username,
+    password}
+    return this.http.post("http://localhost:3000/register",data)
+    // let userdetails=this.users
+    // if(userid in userdetails)
+    // {
+    //   alert("exist")
+    //   return false;
+    // }
+    // else
+    // {
+    //   userdetails[userid]={userid,username,password,events:[]}
+    //   // console.log(userdetails);
+    //   this.savedata()
+    //   // alert("successfully registered")
+    //   return true
+    // }
    
   }
 
   login(userid:any,password:any)
   {
-    let userdetails=this.users
-    console.log(password);
-    if(userid in userdetails)
-    {
-      if(password==userdetails[userid]["password"])
-      {
-        alert("login succes")
-        this.currentid=userid;
-        this.currentuser=userdetails[userid]["username"]
-        this.savedata();
-        this.router.navigateByUrl("dashboard")
+    const data={
+      userid,
+      password
+    }
+    return this.http.post("http://localhost:3000/login",data,options)
+    // let userdetails=this.users
+    // console.log(password);
+    // if(userid in userdetails)
+    // {
+    //   if(password==userdetails[userid]["password"])
+    //   {
+    //     alert("login succes")
+    //     this.currentid=userid;
+    //     this.currentuser=userdetails[userid]["username"]
+    //     this.savedata();
+    //     this.router.navigateByUrl("dashboard")
         
-      }
-      else
-      {
-        alert("invalid password")
-      }
-    }
-    else
-    {
+    //   }
+    //   else
+    //   {
+    //     alert("invalid password")
+    //   }
+    // }
+    // else
+    // {
       
-      alert("invalid account number")
-    }
+    //   alert("invalid account number")
+    // }
     
   }
-  getevents()
+  getevents(uid:any)
   {
+    const data={
+      uid
+    }
     // console.log(this.users[this.currentuser].events);
     
-    return this.users[this.currentid].events
+    return this.http.post("http://localhost:3000/getevent",data,options)
   }
  
  
@@ -137,15 +152,32 @@ export class DataService {
 
   addevent(uid:any,date:any,event:any)
   {
-    let userdetails=this.users;
-    userdetails[uid].events.push({
-      date:date,
-      event:event
-    })
-    this.savedata()
-    return true
+    const data={
+      uid,
+      date,
+      event
+    }
+    return this.http.post("http://localhost:3000/addevent",data,options)
+
+    // let userdetails=this.users;
+    // userdetails[uid].events.push({
+    //   date:date,
+    //   event:event
+    // })
+    // this.savedata()
+    // return true
   }
   
+deleteAcc(event:any){
+  return this.http.delete("http://localhost:3000/deleteAcc/"+event,options)
+}
 
+remind(dateonly:any){
+  // console.log(dateonly);
+  const data={
+    dateonly
+  }
+  return this.http.post("http://localhost:3000/remind",data,options)
+}
 
 }

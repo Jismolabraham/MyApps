@@ -1,13 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8"><h3>Hello!! Welcome &nbsp;{{newUser}}&nbsp;&nbsp;</h3>
+            {{today}}
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
 
 <div>
-    <h2>Hello&nbsp;{{user}}</h2>
+    
 </div>
+<div >
+    hello
+</div>
+
 <form>
     <div class="container des">
         <div class="row">
             <div class="col-4"></div>
             <div class="col-4">
-                <h2>Add events here!!</h2>
+                <h4>Add events here!!</h4>
                 <input type="text" [(ngModel)]="uid" placeholder="userid" name ="uid">
                 <input type="date" [(ngModel)]="date" placeholder="date" name="date">
                 <input type="text" [(ngModel)]="event" name="" placeholder="Event" name="event">
@@ -38,6 +52,16 @@
         <div class="col-4"></div>
         <div class="col-4">
             <a routerLink="/events">view events history</a>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+<app-deleteconfirmation (onCancel)="cancelatparent()" (onDelete)="ondeleteatparent($event)" [item]="currentuid"></app-deleteconfirmation>
+<div clas="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <button class="btn btn-danger" (click)="deleteAcc()">delete</button>
         </div>
         <div class="col-4"></div>
     </div>
