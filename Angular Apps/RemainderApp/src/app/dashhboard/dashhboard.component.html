@@ -1,0 +1,132 @@
+<div class="design container-fluid">
+    <div class="head">
+        <img src="assets/images/icon.png" style="height: 30px; width: 30px; margin-top: 10px; margin-left: 200px;">
+        {{today}}
+        
+                                                                                                                    
+        
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        
+        
+        <div class="col-4" style="margin-top: 100px;"></div>
+            <div class="col-4"><h3>Hello!! Welcome &nbsp;{{newUser}}&nbsp;&nbsp;</h3>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container" *ngIf="todayevents.length>0" >
+    <div class="row">
+        <div class="col-4">
+        </div>
+        <div class="col-2">
+            <img style="width: 100px; height: 100;" src="assets/images/dontforget.jpg">
+
+        </div>
+        <div class="col-6"><div class="container">
+            <h5>Your events for today</h5>
+            <table class="table table-dark table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Event</th>
+                    
+                </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let event of todayevents">
+                    <th scope="row">*</th>
+                    <td>{{event.date}}</td>
+                    <td>{{event.event}}</td>
+                    
+                </tr>
+                  
+                </tbody>
+              </table>
+        </div></div>
+    </div>
+    
+</div>
+<div class="container" *ngIf="todayevents.length==0">
+
+<div class="row">
+    <div class="col-6"></div>
+    <div class="col-2">
+        <img style="width: 80px; height: 80;" src="assets/images/noevent.jpg">
+
+    </div>
+    <div class="col-4">
+        <h3 style="color:red;">No events for today</h3>
+    </div>
+</div>
+</div>
+<!-- <div >
+    hello
+</div> -->
+
+<form>
+    <div class="container des">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4" style="margin-top: 10px;">
+                <img style="width: 400px; height: 400;" src="assets/images/mainimage.jpg">
+
+            </div>
+            <div class="col-4" style="margin-top: 100px;">
+                <h4>Add events here!!</h4>
+                <input type="text" [(ngModel)]="uid" placeholder="userid" name ="uid">
+                <input type="date" [(ngModel)]="date" placeholder="date" name="date">
+                <input type="text" [(ngModel)]="event" name="" placeholder="Event" name="event">
+                <button class="btn btn-warning" (click)="addevent()">Add</button><br>
+                <app-deleteconfirmation (onCancel)="cancelatparent()" (onDelete)="ondeleteatparent($event)" [item]="currentuid"></app-deleteconfirmation><br><br>
+
+                <button class="btn btn-danger" (click)="deleteAcc()">delete</button><br><br>
+                <a routerLink="/events">view events history</a>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- <form>
+    <div class="container des">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h2>Delete events here!!</h2>
+                <input type="text" [(ngModel)]="uid1" placeholder="userid" name="uid1">
+                <input type="date" [(ngModel)]="date1" placeholder="date" name="date1">
+                <input type="text" [(ngModel)]="event1" name="event" placeholder="Event" name="event1">
+                <button class="btn btn-success" (click)="deleteevent">Delete</button>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+</form> -->
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        
+        <div class="col-4">
+            <div class="col-4">
+            </div>
+        </div>
+    </div>
+</div>
+<div clas="container">
+    <div class="row">
+        <div class="col-4"></div>
+        
+        <div class="col-4">
+            <div class="col-4">
+               
+            </div>
+        </div>
+    </div>
+</div>

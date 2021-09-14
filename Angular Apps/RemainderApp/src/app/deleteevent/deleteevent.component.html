@@ -1,0 +1,40 @@
+<body>
+    <!-- <div class="design container-fluid">
+        <div class="head">
+            <img src="assets/images/icon.png" style="height: 30px; width: 30px; margin-top: 10px; margin-left: 200px;">
+            {{today}}
+
+
+
+        </div>
+    </div> -->
+    
+
+            <div *ngIf="index">
+                    <h5>
+                        <img src="assets/images/deleteevent.jpg" style="width: 50px; height: 50px;">
+                        &nbsp;&nbsp;Dou you want to delete the event of indexed {{index}}  ???
+                    </h5>
+                    <button class="btn btn-warning  " style="margin-left: 100px width=150px;" (click)="delete()">Yes</button>&nbsp;&nbsp;
+                    <button class="btn btn-secondary" style="margin-left: 100px width=150px;" (click)="cancel()">No</button>
+                    <!-- <label style="font-size: x-large;">Date:</label>
+                    <input type="text" style="width: 300px;" name="date" ><br><br>
+    
+                    <label style="font-size: x-large;">Event:</label>
+                    <input type="text" style="width: 300px;" name="event"><br><br>
+                    <button class="btn btn-danger" style="margin-left: 300px;">Delete</button> -->
+            </div>
+
+            <div *ngIf="index1">
+                <h5>
+                    <img src="assets/images/edit.png" style="width: 50px; height: 50px;">
+                    &nbsp;&nbsp;Dou you want to edit the event of indexed {{index1}}  ???
+                </h5>
+                <input type="date" width="300px" placeholder={{date}} [(ngModel)]="updatedate" > &nbsp;&nbsp;
+                <input type="text" width="300px" placeholder={{event}} [(ngModel)]="updateevent">&nbsp;<br><br>
+                <button class="btn btn-warning  " style="margin-left: 300px width=300px; height: 40px; align-content: center;" (click)="save()" >Save</button>&nbsp;&nbsp;
+                <button class="btn btn-secondary" style="margin-left: 200px width=150px; height: 40px" (click)="cancelupdate()" >Cancel</button>
+
+            </div>
+    
+</body>

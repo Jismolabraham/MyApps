@@ -1,0 +1,20 @@
+.main
+{
+    margin-top: 70px;
+    /* background-color: aquamarine; */
+}
+.erroracc
+{
+    color: brown;
+}
+
+.head
+{
+    text-align: center;
+}
+.design
+{
+    display: flex;
+    /* height: 50px; */
+    background-color: orange;
+}

@@ -1,0 +1,31 @@
+
+<div class="design container-fluid">
+    <div class="head" style="margin-top: 10px;">
+        <img src="assets/images/icon.png" style="height: 30px; width: 30px; margin-top: 10px; margin-left: 200px;">
+        {{today}}    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4"></div>
+        <div class="col-4"></div>
+    </div>
+</div>
+<form (ngSubmit)="register()">
+    <div class="container design1">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <img src="assets/images/mainimage.jpg">
+            </div>
+            <div class="col-4">
+                
+                <h2>Register Here!!</h2><br>
+                <input type="text" placeholder="Enter User Id" [(ngModel)]="uid" name="uid"><br><br>
+                <input type="UseName" placeholder="Enter UerName" [(ngModel)]="uname" name="uname"><br><br>
+                <input type="password" placeholder="password" [(ngModel)]="pwd" name="pwd"><br><br>
+                <button class="btn btn-warning" type="submit">Register</button>
+            </div>
+        </div>
+    </div>
+</form>

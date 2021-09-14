@@ -1,0 +1,49 @@
+<div class="design container-fluid">
+    <div class="head">
+        <img src="assets/images/icon.png" style="height: 30px; width: 30px; margin-top: 10px; margin-left: 200px;">
+        {{today}}
+        
+                                                                                                                    
+        
+    </div>
+</div>
+<div>
+    <h3 style="margin-left: 100px;">{{aim}}</h3>
+</div>
+
+<div class="main">
+    <form [formGroup]="loginform" (ngSubmit)="login()">
+        <div class="container">
+            <div class="row">
+                <div class="col-4"></div>
+
+                <div class="col-4 main">
+
+                </div>
+                <!-- </form> -->
+                <div class="col-4"></div>
+            </div>
+            <div class="row">
+                <div class="col-4" style="">
+                    
+                </div>
+                <div class="col-4" style="">
+                    <img style="width: 400px; height: 400;" src="assets/images/mainimage.jpg">
+                </div>
+                <div class="col-4">
+                    <input type="text" placeholder="Enter UserId" formControlName="uid" name="uid"><br><br>
+                    <div class="erroracc"
+                        *ngIf="( this.loginform.get('uid')?.touched || this.loginform.get('uid')?.dirty ) && this.loginform.get('uid')?.errors">
+                        Invalid userid</div>
+                    <input type="password" placeholder="Password" formControlName="pwd" name="pwd"><br><br>
+                    <div class="erroracc"
+                        *ngIf="( this.loginform.get('pwd')?.touched || this.loginform.get('pwd')?.dirty ) && this.loginform.get('pwd')?.errors">
+                        Invalid password</div>
+
+                    <button type="submit" class="btn btn-warning">Sign In</button><br><br>
+                    <a routerLink="register">Register yourself</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
